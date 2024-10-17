@@ -1,5 +1,6 @@
 import express from 'express';
-import { login, logout, signup } from '../controllers/auth-controller.js';
+import { login, logout, signup, getMe } from '../controllers/auth-controller.js';
+import { protectRoute } from '../middleware/protect-route.js';
 
 const router = express.Router();
 
@@ -20,10 +21,12 @@ const router = express.Router();
 //        data: "You hit the logout endpoint" 
 //     });
 // });
-`   `
+router.get("/me", protectRoute, getMe);
 router.post("/signup", signup);
 router.post("/login", login);
 router.post("/logout", logout);
+
+
 
 
 
