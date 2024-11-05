@@ -69,7 +69,7 @@ export const signup = async (req,res) => {
 
 
     }catch (error){
-        console.log("Error in auth-controller.js - signup")
+        console.log("Error in signup controller: ", error.message);
         res.status(500).json({ error: "Internal Service error" });
     }
 }
